@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    
+    <h3>Likes: <span id="count">0</span></h3>
+    <button type="button" onclick="add()">Like</button>
+
+    <div id="first-div">
+        <h1>Programming Language</h1>
+        <p>these are some popular programming languages</p>
+        <ul class="languages">
+            <!--These items to retrieve elements by ID
+            <li id="first-li">JavaScript</li>
+            <li id="second-li">Kotlin</li>
+            <li id="last-li">Swift</li> 
+            -->
+
+            <!--These items to retrieve elements by class             
+            <li class="p-languages">JavaScript</li>
+            <li class="p-languages">Kotlin</li>
+            <li class="p-languages">Swift</li>
+            -->
+
+            <!-- These items to retrieve an elemet by tag "li" -->
+            <li>JavaScript</li>
+            <p>also known as JS, used for building interactive websites</p>
+            <li>Kotlin</li>
+            <p>used to develope Android apps</p>
+            <li>Swift</li>
+            <p>used to develope IOS apps</p>
+        </ul>
+    </div>
+
+    <script>
+        // retreiving an element by ID
+        // let swift = document.getElementById('last-li')
+        // console.log(swift)
+
+        // retrieving an element by class name
+        // let languages = document.getElementsByClassName("p-languages")
+        // console.log(languages[1])
+
+        // retrieving an element by tag "li"
+        let list = document.getElementsByTagName('li') // calling the whole list
+        console.log(list[2]) // calling the element with index 2 in the list
+
+        // retrieving first element with tag p in and is in the class languages
+        let text = document.querySelector('.languages p')
+        console.log(text)
+
+        // retrieving all elements with tag p in and is in the class languages
+        let all = document.querySelectorAll('.languages p')
+        console.log(all)
+
+        // this is used to change the inner text of a selected field
+        let inChange = document.querySelector('.languages li')
+        inChange.innerText = "Python"
+        inChange.style.color = "red" // here we change the style of a certain element
+        // we picked the color red to show that Python is not supposed to be there
+        console.log(inChange)
+
+        let newList = document.querySelector(".languages")
+        let ruby = document.createElement("li") // creating a new li element in the list
+        ruby.innerText = "Ruby"
+        newList.append(ruby)
+
+        // let ios = document.querySelectorAll("li")[2]
+        // ios.remove() // removing a selected element 
+        // console.log(languagesList)
+
+        // here is a function to allow the users to like our page.
+        let clicks = 0;
+        function add() {
+            clicks++;
+            document.getElementById("count").innerText = clicks   
+        }
+    </script>
+</body>
+</html>
